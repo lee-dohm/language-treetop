@@ -1,0 +1,8 @@
+'.source.treetop':
+  'grammar ... end':
+    'prefix': 'g'
+    'body': 'grammar ${1:GrammarName}\n  rule ${2:rule_name}\n    $0\n  end\nend'
+'.meta.grammar.treetop':
+  'rule ... end':
+    'prefix': 'r'
+    'body': 'rule ${1:rule_name}\n\t$0\nend'

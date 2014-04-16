@@ -1,0 +1,5 @@
+'.source.treetop':
+  'editor':
+    'commentStart': '# '
+    'increaseIndentPattern': '^\\s*(grammar|rule)\\s+\\w+\\s*$'
+    'decreaseIndentPattern': '^\\s*end\\s*$'

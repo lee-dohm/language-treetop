@@ -1,0 +1,184 @@
+'fileTypes': [
+  'treetop'
+  'tt'
+]
+'foldingStartMarker': '(module|grammer|rule).*$'
+'foldingStopMarker': '^\\s*end'
+'name': 'Treetop Grammar'
+'patterns': [
+  {
+    'include': '#comment'
+  }
+  {
+    'begin': '^(\\s*)(module) ([A-Z]\\w+)'
+    'beginCaptures':
+      '2':
+        'name': 'keyword.begin.module.treetop'
+      '3':
+        'name': 'entity.name.module.treetop'
+    'end': '^\\1(end)$'
+    'endCaptures':
+      '1':
+        'name': 'keyword.end.module.treetop'
+    'name': 'meta.module.treetop'
+    'patterns': [
+      {
+        'include': '$self'
+      }
+    ]
+  }
+  {
+    'begin': '^(\\s*)(grammar) ([A-Z]\\w+)'
+    'beginCaptures':
+      '2':
+        'name': 'keyword.begin.grammar.treetop'
+      '3':
+        'name': 'entity.name.grammar.treetop'
+    'end': '^\\1(end)$'
+    'endCaptures':
+      '1':
+        'name': 'keyword.end.grammar.treetop'
+    'name': 'meta.grammar.treetop'
+    'patterns': [
+      {
+        'include': '$self'
+      }
+    ]
+  }
+  {
+    'captures':
+      '1':
+        'name': 'keyword.include.treetop'
+      '2':
+        'name': 'entity.name.include.treetop'
+    'match': '(include)\\s+(\\w+)'
+    'name': 'meta.include.treetop'
+  }
+  {
+    'begin': '\\b(rule)\\b (\\w+)'
+    'beginCaptures':
+      '1':
+        'name': 'keyword.begin.rule.treetop'
+      '2':
+        'name': 'entity.name.rule.treetop'
+    'end': '^\\s+\\bend\\b\\s*$'
+    'endCaptures':
+      '0':
+        'name': 'keyword.end.rule.treetop'
+    'name': 'meta.rule.treetop'
+    'patterns': [
+      {
+        'include': '#comment'
+      }
+      {
+        'include': '#strings'
+      }
+      {
+        'include': '#character-class'
+      }
+      {
+        'match': '\\/'
+        'name': 'keyword.operator.or.treetop'
+      }
+      {
+        'match': '<\\w+?>'
+        'name': 'variable.class-instance.treetop'
+      }
+      {
+        'match': '\\w+?:'
+        'name': 'support.operand.treetop'
+      }
+      {
+        'begin': '\\{'
+        'end': '\\}'
+        'name': 'meta.embedded-ruby.treetop'
+        'patterns': [
+          {
+            'include': 'source.ruby'
+          }
+        ]
+      }
+    ]
+  }
+]
+'repository':
+  'character-class':
+    'patterns': [
+      {
+        'match': '\\\\[wWsSdDhH]|\\.'
+        'name': 'constant.character.character-class.regexp'
+      }
+      {
+        'match': '\\\\.'
+        'name': 'constant.character.escape.backslash.regexp'
+      }
+      {
+        'begin': '(\\[)(\\^)?'
+        'beginCaptures':
+          '1':
+            'name': 'punctuation.definition.character-class.regexp'
+          '2':
+            'name': 'keyword.operator.negation.regexp'
+        'end': '(\\])'
+        'endCaptures':
+          '1':
+            'name': 'punctuation.definition.character-class.regexp'
+        'name': 'constant.other.character-class.set.regexp'
+        'patterns': [
+          {
+            'include': '#character-class'
+          }
+          {
+            'captures':
+              '2':
+                'name': 'constant.character.escape.backslash.regexp'
+              '4':
+                'name': 'constant.character.escape.backslash.regexp'
+            'match': '(.|(\\\\.))\\-([^\\]]|(\\\\.))'
+            'name': 'constant.other.character-class.range.regexp'
+          }
+          {
+            'match': '&&'
+            'name': 'keyword.operator.intersection.regexp'
+          }
+        ]
+      }
+    ]
+  'comment':
+    'captures':
+      '1':
+        'name': 'punctuation.definition.comment.treetop'
+    'match': '(#).*$\\n?'
+    'name': 'comment.line.number-sign.treetop'
+  'strings':
+    'patterns': [
+      {
+        'begin': '\''
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.treetop'
+        'end': '\''
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.treetop'
+        'name': 'string.quoted.single.treetop'
+        'patterns': [
+          {
+            'match': '\\\\(u\\h{4}|.)'
+            'name': 'constant.character.escape.antlr'
+          }
+        ]
+      }
+      {
+        'begin': '"'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.treetop'
+        'end': '"'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.treetop'
+        'name': 'string.quoted.double.treetop'
+      }
+    ]
+'scopeName': 'source.treetop'
