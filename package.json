@@ -1,12 +1,11 @@
 {
   "name": "language-treetop",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Syntax and snippets for treetop files.",
   "repository": "https://github.com/pcasaretto/language-treetop",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
