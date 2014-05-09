@@ -2,9 +2,9 @@
   'treetop'
   'tt'
 ]
-'foldingStartMarker': '(module|grammer|rule).*$'
+'foldingStartMarker': '(module|grammar|rule).*$'
 'foldingStopMarker': '^\\s*end'
-'name': 'Treetop Grammar'
+'name': 'Treetop'
 'patterns': [
   {
     'include': '#comment'
