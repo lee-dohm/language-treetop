@@ -81,7 +81,7 @@
         'name': 'keyword.operator.or.treetop'
       }
       {
-        'match': '<\\w+?>'
+        'match': '<(\\w+\\:{2})?\\w+?>'
         'name': 'variable.class-instance.treetop'
       }
       {
